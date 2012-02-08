@@ -1,0 +1,15 @@
+= label_tag      :card_number, 'Credit Card Number'
+= text_field_tag :card_number, nil, name: nil, maxlength: 16
+
+= label_tag      :card_code, 'Security Code (CVV)'
+= text_field_tag :card_code, nil, name: nil, maxlength: 4
+
+= f.label      :card_zip, 'Billing Zip Code'
+= f.text_field :card_zip, maxlength: 5
+
+= label_tag :card_month, 'Card Expiration'
+= select_month Date.today.month, { add_month_numbers: true }, { name: nil, id: 'card_month' }
+= select_year  nil, { start_year: Date.today.year, end_year: Date.today.year + 6 }, { name: nil, id: 'card_year' }
+
+%noscript
+  JavaScript is not enabled and is required for this form. First enable it in your web browser settings.

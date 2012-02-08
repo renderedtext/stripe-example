@@ -1,0 +1,4 @@
+# see https://manage.stripe.com/#account/apikeys
+---
+app_id: PUBLISHABLE_KEY
+secret: SECRET_KEY

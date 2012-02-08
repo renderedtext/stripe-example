@@ -13,18 +13,44 @@
 
 ActiveRecord::Schema.define(:version => 20120128045950) do
 
+  create_table "plans", :force => true do |t|
+    t.string   "name",                                     :null => false
+    t.string   "slug",                                     :null => false
+    t.decimal  "price",      :precision => 8, :scale => 2, :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+  end
+
+  add_index "plans", ["price"], :name => "index_plans_on_price"
+  add_index "plans", ["slug"], :name => "index_plans_on_slug", :unique => true
+
   create_table "rails_admin_histories", :force => true do |t|
     t.integer  "item"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 5
+    t.integer  "month"
+    t.integer  "year"
     t.string   "table"
     t.string   "username"
     t.text     "message"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "user_id",               :null => false
+    t.integer  "plan_id",               :null => false
+    t.string   "stripe_customer_token"
+    t.string   "card_zip"
+    t.string   "last_four"
+    t.string   "card_type"
+    t.date     "next_bill_on"
+    t.string   "card_expiration"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  add_index "subscriptions", ["user_id"], :name => "index_subscriptions_on_user_id", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

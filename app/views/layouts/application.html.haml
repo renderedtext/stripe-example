@@ -1,0 +1,23 @@
+!!!
+%html{ 'xml:lang' => 'en', lang: 'en', xmlns: 'http://www.w3.org/1999/xhtml' }
+
+  %head
+    %meta{ name: 'stripe-key',  content: STRIPE_PUBLIC_KEY }
+    = csrf_meta_tag
+
+    = stylesheet_link_tag    'application'
+    = javascript_include_tag 'https://js.stripe.com/v1/', 'application'
+
+    %title
+      = yield :title
+
+    %body{ class: Rails.env }
+
+      %header
+        = yield :header
+        - flash.each do |type, message|
+          .flash{ class: type }= message
+
+      = yield
+
+      %footer

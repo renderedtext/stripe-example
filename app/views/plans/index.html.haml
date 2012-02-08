@@ -1,0 +1,13 @@
+= title 'Plans'
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Price
+
+  %tbody
+    - for plan in @plans
+      %tr
+        %td= link_to plan.name, signup_path(plan: plan)
+        %td= number_to_currency plan.price

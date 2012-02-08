@@ -1,0 +1,18 @@
+%h2 Billing Information
+
+= form_for @subscription do |f|
+  .error_messages
+    - if @subscription.errors.any?
+      %h2 Something went wrong!
+      %ul.errors
+        - @subscription.errors.full_messages.each do |msg|
+          %li= msg
+
+  - if Rails.env.test? # capybara won't set hidden fields
+    = f.text_field   :stripe_card_token
+  - else
+    = f.hidden_field :stripe_card_token
+
+  = render 'card_fields', locals: { f: f }
+
+  = f.submit 'Update your credit card', class: 'btn primary large'
