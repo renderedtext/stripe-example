@@ -51,8 +51,8 @@
       - Stripe/v1 RubyBindings/1.6.0
       x-stripe-client-user-agent:
       - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"x86_64-darwin11.2.0","publisher":"stripe","uname":"Darwin
-        mars.hsl.dn42 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT
-        2011; root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
+        Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
+        root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
       content-length:
       - '111'
       content-type:
@@ -65,21 +65,21 @@
       server:
       - nginx
       date:
-      - Wed, 08 Feb 2012 01:37:55 GMT
+      - Wed, 08 Feb 2012 19:22:13 GMT
       content-type:
       - application/json;charset=utf-8
       connection:
       - keep-alive
       content-length:
       - '780'
-    body: ! "{\n  \"created\": 1328665073,\n  \"email\": \"user_16@example.com\",\n
-      \ \"id\": \"cus_R78CTKY1wzSVPY\",\n  \"livemode\": false,\n  \"object\": \"customer\",\n
+    body: ! "{\n  \"created\": 1328728929,\n  \"email\": \"user_16@example.com\",\n
+      \ \"id\": \"cus_fZvN1V4La2owIq\",\n  \"livemode\": false,\n  \"object\": \"customer\",\n
       \ \"active_card\": {\n    \"country\": \"US\",\n    \"exp_month\": 11,\n    \"exp_year\":
       2012,\n    \"last4\": \"4242\",\n    \"object\": \"card\",\n    \"type\": \"Visa\"\n
       \ },\n  \"next_recurring_charge\": {\n    \"amount\": 1000,\n    \"date\": \"2012-03-08\"\n
-      \ },\n  \"subscription\": {\n    \"current_period_end\": 1331170673,\n    \"current_period_start\":
-      1328665073,\n    \"customer\": \"cus_R78CTKY1wzSVPY\",\n    \"object\": \"subscription\",\n
-      \   \"start\": 1328665073,\n    \"status\": \"active\",\n    \"plan\": {\n      \"amount\":
+      \ },\n  \"subscription\": {\n    \"current_period_end\": 1331234529,\n    \"current_period_start\":
+      1328728929,\n    \"customer\": \"cus_fZvN1V4La2owIq\",\n    \"object\": \"subscription\",\n
+      \   \"start\": 1328728929,\n    \"status\": \"active\",\n    \"plan\": {\n      \"amount\":
       1000,\n      \"currency\": \"usd\",\n      \"id\": \"test-plan\",\n      \"interval\":
       \"month\",\n      \"livemode\": false,\n      \"name\": \"test plan\",\n      \"object\":
       \"plan\"\n    }\n  }\n}\n"
