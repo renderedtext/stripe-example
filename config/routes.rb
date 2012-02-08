@@ -7,6 +7,8 @@ StripeExample::Application.routes.draw do
   get '/signup/:plan' => 'plans#show',  as: 'signup'
   get '/plans/'       => 'plans#index', as: 'plans'
 
-  resources :subscriptions, only: [:new, :create, :edit, :update]
+  resources :subscriptions
+
+  root to: 'welcome#index'
 
 end

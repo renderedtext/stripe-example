@@ -1,5 +1,7 @@
 class PlansController < ApplicationController
 
+  respond_to :html
+
   def index
     @plans = Plan.order 'price asc'
     respond_with @plans
