@@ -17,4 +17,20 @@ class SubscriptionsController < ApplicationController
     end
   end
 
+  def edit
+    @subscription = current_user.subscription
+  end
+
+  def update
+    @subscription = current_user.subscription
+
+    if @subscription.update_with_payment params[:subscription]
+      flash.now[:success] = 'Subscription updated!'
+      redirect_to root_path
+    else
+      flash.now[:error] = 'Unable to update billing!'
+      render :edit
+    end
+  end
+
 end

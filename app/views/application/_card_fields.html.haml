@@ -5,7 +5,7 @@
 = text_field_tag :card_code, nil, name: nil, maxlength: 4
 
 = label_tag      :card_zip, 'Billing Zip Code'
-= text_field_tag :card_zip, maxlength: 5
+= text_field_tag :card_zip, '', maxlength: 5
 
 = label_tag :card_month, 'Card Expiration'
 = select_month Date.today.month, { add_month_numbers: true }, { name: nil, id: 'card_month' }
