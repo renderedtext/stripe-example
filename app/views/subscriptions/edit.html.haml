@@ -1,3 +1,9 @@
+%h2 Plans
+
+%ul
+  - Plan.all.each do |plan|
+    %li= link_to "Switch to the #{ plan.name } plan", change_subcription_path(@subscription, new_plan_id: plan.id)
+
 %h2 Billing Information
 
 = form_for @subscription do |f|
