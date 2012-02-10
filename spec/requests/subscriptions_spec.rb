@@ -43,7 +43,7 @@ describe 'Subscriptions' do
       before do
         # create a Stripe::Customer manually so that we know what will be returned when
         # Stripe::Customer#create is called by Subscription#save_with_payment
-        customer = Stripe::Customer.create card: card, plan: plan
+        customer = Stripe::Customer.create card: card, plan: plan.slug
         Stripe::Customer.stub!(:create).and_return(customer)
 
         # These fields don't actually get passed to Stripe::Customer#create,
@@ -113,7 +113,7 @@ describe 'Subscriptions' do
       it 'updates the data successfully' do
         # create a Stripe::Customer manually so that we know what will be returned when
         # Stripe::Customer#create is called by Subscription#save_with_payment
-        customer = Stripe::Customer.create card: card, plan: plan
+        customer = Stripe::Customer.create card: card, plan: plan.slug
         Stripe::Customer.stub!(:create).and_return(customer)
 
         # These fields don't actually get passed to Stripe::Customer#create,

@@ -56,7 +56,7 @@ describe Subscription do
     describe '#next_bill_on' do
 
       it 'returns the date of the next charge' do
-        @subscription.next_bill_on.should == Date.parse('2012-03-08')
+        @subscription.next_bill_on.should == Date.today >> 1
       end
 
     end
