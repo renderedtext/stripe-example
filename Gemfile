@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'rails_admin', git: 'git://github.com/sferik/rails_admin.git'
 gem 'sass-rails',  '~> 3.2.3'
+gem 'sqlite3'
 gem 'stripe'
 
 group :assets do
