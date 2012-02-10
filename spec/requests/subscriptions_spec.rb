@@ -127,6 +127,28 @@ describe 'Subscriptions' do
 
         click_button 'Update'
       end
+
+    end
+
+  end
+
+  describe 'change plan' do
+
+    let(:other_plan) { Plan.last }
+
+    use_vcr_cassette 'stripe/billing-plan-change', :record => :all
+
+    before do
+      @subscription = user.build_subscription plan: plan, stripe_card_token: card
+      @subscription.save_with_payment
+
+      visit edit_subscription_path(@subscription)
+    end
+
+    it 'switches plans' do
+      click_link "Switch to the #{ other_plan.name } plan"
+      user.reload.plan.should == other_plan
+      should have_content("The plans. You have changed them.")
     end
 
   end
