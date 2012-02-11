@@ -8,7 +8,7 @@ StripeExample::Application.routes.draw do
   get '/plans/'       => 'plans#index', as: 'plans'
 
   resources :subscriptions do
-    put :change, :on => :member, as: 'change'
+    put :change_plan, :on => :member, as: 'change'
   end
 
   root to: 'welcome#index'

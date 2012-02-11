@@ -2,7 +2,7 @@
 
 %ul
   - Plan.all.each do |plan|
-    %li= link_to "Switch to the #{ plan.name } plan", edit_subscription_path(@subscription, new_plan_id: plan.id)
+    %li= link_to "Switch to the #{ plan.name } plan", change_subscription_path(@subscription, new_plan_id: plan.id), :method => :put
 
 %h2 Billing Information
 
