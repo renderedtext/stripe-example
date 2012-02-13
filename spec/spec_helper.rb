@@ -20,8 +20,8 @@ RSpec.configure do |config|
 
   config.before :suite do
     Plan.delete_all
-    Plan.create name: 'Test Plan',    price: 10.00
-    Plan.create name: 'Another Plan', price: 15.00
+    Plan.create name: 'Dickbutts',      price: 10.00
+    Plan.create name: 'More Dickbutts', price: 15.00
 
     DatabaseCleaner.strategy = :truncation, { except: %w[ plans ]}
   end
