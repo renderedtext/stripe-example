@@ -40,11 +40,10 @@ class SubscriptionsController < ApplicationController
 
     if @subscription.change_plan_to params[:new_plan_id]
       flash.now[:success] = 'The plans. You have changed them.'
-      redirect_to root_path
     else
       flash.now[:error] = 'Unable to change your plan.'
-      render :edit
     end
+      render :edit
   end
 
 end

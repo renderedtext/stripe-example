@@ -43,9 +43,8 @@ class Subscription < ActiveRecord::Base
   def change_plan_to new_plan_id
     new_plan = Plan.find new_plan_id
 
-    customer      = stripe_customer
-    customer.plan = new_plan.slug
-    customer      = customer.save
+    customer = stripe_customer
+    customer.update_subscription( plan: new_plan.slug )
 
     self.plan         = new_plan
     self.next_bill_on = Date.parse customer.next_recurring_charge.date
