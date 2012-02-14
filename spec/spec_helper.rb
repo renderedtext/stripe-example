@@ -34,7 +34,7 @@ end
 
 VCR.config do |config|
   config.cassette_library_dir     = 'spec/data'
-  config.default_cassette_options = { :record => :none }
+  config.default_cassette_options = { :record => :new_episodes }
   config.ignore_localhost         = true
 
   config.stub_with :webmock
