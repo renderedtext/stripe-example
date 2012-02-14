@@ -27,7 +27,7 @@ describe Subscription do
 
   describe 'credit card info' do
 
-    use_vcr_cassette 'billing/customer_create', :record => :all
+    use_vcr_cassette 'billing/customer_create', :record => :none
 
     let(:plan) { Plan.first }
     let(:card) {{ number: '4242424242424242', exp_month: '11', exp_year: '2012' }}
