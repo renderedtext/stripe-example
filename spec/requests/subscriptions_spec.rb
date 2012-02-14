@@ -24,7 +24,7 @@ describe 'Subscriptions' do
 
     context 'with invalid data' do
 
-      use_vcr_cassette 'stripe/subscription-failure', :record => :none
+      use_vcr_cassette 'stripe/subscription-failure'
 
       it 'displays error messages' do
         # invalid data
@@ -38,7 +38,7 @@ describe 'Subscriptions' do
 
     context 'with simulated valid data' do
 
-      use_vcr_cassette 'stripe/subscription-success', :record => :none
+      use_vcr_cassette 'stripe/subscription-success'
 
       before do
         # create a Stripe::Customer manually so that we know what will be returned when
@@ -80,7 +80,7 @@ describe 'Subscriptions' do
 
     context 'with invalid data' do
 
-      use_vcr_cassette 'stripe/billing-update-failure', :record => :none
+      use_vcr_cassette 'stripe/billing-update-failure'
 
       before do
         @subscription = user.build_subscription plan: plan, stripe_card_token: card
@@ -101,7 +101,7 @@ describe 'Subscriptions' do
 
     context 'with simulated svalid data' do
 
-      use_vcr_cassette 'stripe/billing-update-success', :record => :none
+      use_vcr_cassette 'stripe/billing-update-success'
 
       before do
         @subscription = user.build_subscription plan: plan, stripe_card_token: card
