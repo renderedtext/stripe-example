@@ -134,7 +134,7 @@ describe 'Subscriptions' do
 
   describe 'change plan' do
 
-    let(:other_plan) { Plan.find_by_slug "more-dickbutts" }
+    let(:other_plan) { Plan.find_by_slug "another-plan" }
 
     use_vcr_cassette 'stripe/billing-plan-change', :record => :none
 
