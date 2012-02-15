@@ -134,9 +134,9 @@ describe 'Subscriptions' do
 
   describe 'change plan' do
 
-    let(:other_plan) { Plan.find_by_slug "another-plan" }
+     let(:other_plan) { Plan.find_by_slug 'another-plan' }
 
-    use_vcr_cassette 'stripe/billing-plan-change', :record => :none
+    use_vcr_cassette 'stripe/billing-plan-change', :record => :new_episodes
 
     before do
       @subscription = user.build_subscription plan: plan, stripe_card_token: card

@@ -3,7 +3,7 @@
   request: !ruby/struct:VCR::Request
     method: :post
     uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers
-    body: email=user_22%40example.com&plan=test-plan&card[number]=4242424242424242&card[cvc]=123&card[address_zip]=12312&card[exp_month]=5&card[exp_year]=2012
+    body: email=user_22%40example.com&plan=another-plan&card[number]=4242424242424242&card[cvc]=123&card[address_zip]=12312&card[exp_month]=5&card[exp_year]=2012
     headers:
       accept:
       - ! '*/*; q=0.5, application/xml'
@@ -16,7 +16,7 @@
         Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
         root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
       content-length:
-      - '148'
+      - '151'
       content-type:
       - application/x-www-form-urlencoded
   response: !ruby/struct:VCR::Response
@@ -27,32 +27,32 @@
       server:
       - nginx
       date:
-      - Tue, 14 Feb 2012 01:42:12 GMT
+      - Wed, 15 Feb 2012 01:44:46 GMT
       content-type:
       - application/json;charset=utf-8
       connection:
       - keep-alive
       content-length:
-      - '889'
-    body: ! "{\n  \"account_balance\": 0,\n  \"created\": 1329183729,\n  \"email\":
-      \"user_22@example.com\",\n  \"id\": \"cus_t5Zmx1e1qxbte4\",\n  \"livemode\":
+      - '895'
+    body: ! "{\n  \"account_balance\": 0,\n  \"created\": 1329270285,\n  \"email\":
+      \"user_22@example.com\",\n  \"id\": \"cus_HM3Z2Xy4cawkU3\",\n  \"livemode\":
       false,\n  \"object\": \"customer\",\n  \"active_card\": {\n    \"address_zip\":
       \"12312\",\n    \"address_zip_check\": \"pass\",\n    \"country\": \"US\",\n
       \   \"cvc_check\": \"pass\",\n    \"exp_month\": 5,\n    \"exp_year\": 2012,\n
       \   \"last4\": \"4242\",\n    \"object\": \"card\",\n    \"type\": \"Visa\"\n
-      \ },\n  \"next_recurring_charge\": {\n    \"amount\": 1000,\n    \"date\": \"2012-03-14\"\n
-      \ },\n  \"subscription\": {\n    \"current_period_end\": 1331689330,\n    \"current_period_start\":
-      1329183730,\n    \"customer\": \"cus_t5Zmx1e1qxbte4\",\n    \"object\": \"subscription\",\n
-      \   \"start\": 1329183730,\n    \"status\": \"active\",\n    \"plan\": {\n      \"amount\":
-      1000,\n      \"currency\": \"usd\",\n      \"id\": \"test-plan\",\n      \"interval\":
-      \"month\",\n      \"livemode\": false,\n      \"name\": \"test plan\",\n      \"object\":
-      \"plan\"\n    }\n  }\n}\n"
+      \ },\n  \"next_recurring_charge\": {\n    \"amount\": 1500,\n    \"date\": \"2012-03-15\"\n
+      \ },\n  \"subscription\": {\n    \"current_period_end\": 1331775886,\n    \"current_period_start\":
+      1329270286,\n    \"customer\": \"cus_HM3Z2Xy4cawkU3\",\n    \"object\": \"subscription\",\n
+      \   \"start\": 1329270286,\n    \"status\": \"active\",\n    \"plan\": {\n      \"amount\":
+      1500,\n      \"currency\": \"usd\",\n      \"id\": \"another-plan\",\n      \"interval\":
+      \"month\",\n      \"livemode\": false,\n      \"name\": \"another plan\",\n
+      \     \"object\": \"plan\"\n    }\n  }\n}\n"
     http_version: '1.1'
 - !ruby/struct:VCR::HTTPInteraction
   request: !ruby/struct:VCR::Request
     method: :post
     uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers
-    body: card[number]=4242424242424242&card[cvc]=123&card[address_zip]=12312&card[exp_month]=5&card[exp_year]=2012&plan=test-plan
+    body: card[number]=4242424242424242&card[cvc]=123&card[address_zip]=12312&card[exp_month]=5&card[exp_year]=2012&plan=another-plan
     headers:
       accept:
       - ! '*/*; q=0.5, application/xml'
@@ -65,7 +65,7 @@
         Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
         root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
       content-length:
-      - '120'
+      - '123'
       content-type:
       - application/x-www-form-urlencoded
   response: !ruby/struct:VCR::Response
@@ -76,23 +76,23 @@
       server:
       - nginx
       date:
-      - Tue, 14 Feb 2012 01:42:16 GMT
+      - Wed, 15 Feb 2012 01:44:50 GMT
       content-type:
       - application/json;charset=utf-8
       connection:
       - keep-alive
       content-length:
-      - '855'
-    body: ! "{\n  \"account_balance\": 0,\n  \"created\": 1329183733,\n  \"id\": \"cus_ALn1l1f6EzSDwW\",\n
+      - '861'
+    body: ! "{\n  \"account_balance\": 0,\n  \"created\": 1329270288,\n  \"id\": \"cus_OFKlejWndqFzOx\",\n
       \ \"livemode\": false,\n  \"object\": \"customer\",\n  \"active_card\": {\n
       \   \"address_zip\": \"12312\",\n    \"address_zip_check\": \"pass\",\n    \"country\":
       \"US\",\n    \"cvc_check\": \"pass\",\n    \"exp_month\": 5,\n    \"exp_year\":
       2012,\n    \"last4\": \"4242\",\n    \"object\": \"card\",\n    \"type\": \"Visa\"\n
-      \ },\n  \"next_recurring_charge\": {\n    \"amount\": 1000,\n    \"date\": \"2012-03-14\"\n
-      \ },\n  \"subscription\": {\n    \"current_period_end\": 1331689334,\n    \"current_period_start\":
-      1329183734,\n    \"customer\": \"cus_ALn1l1f6EzSDwW\",\n    \"object\": \"subscription\",\n
-      \   \"start\": 1329183734,\n    \"status\": \"active\",\n    \"plan\": {\n      \"amount\":
-      1000,\n      \"currency\": \"usd\",\n      \"id\": \"test-plan\",\n      \"interval\":
-      \"month\",\n      \"livemode\": false,\n      \"name\": \"test plan\",\n      \"object\":
-      \"plan\"\n    }\n  }\n}\n"
+      \ },\n  \"next_recurring_charge\": {\n    \"amount\": 1500,\n    \"date\": \"2012-03-15\"\n
+      \ },\n  \"subscription\": {\n    \"current_period_end\": 1331775888,\n    \"current_period_start\":
+      1329270288,\n    \"customer\": \"cus_OFKlejWndqFzOx\",\n    \"object\": \"subscription\",\n
+      \   \"start\": 1329270288,\n    \"status\": \"active\",\n    \"plan\": {\n      \"amount\":
+      1500,\n      \"currency\": \"usd\",\n      \"id\": \"another-plan\",\n      \"interval\":
+      \"month\",\n      \"livemode\": false,\n      \"name\": \"another plan\",\n
+      \     \"object\": \"plan\"\n    }\n  }\n}\n"
     http_version: '1.1'
