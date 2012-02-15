@@ -3,7 +3,7 @@
   request: !ruby/struct:VCR::Request
     method: :post
     uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers
-    body: email=user_16%40example.com&plan=test-plan&card[number]=4242424242424242&card[exp_month]=11&card[exp_year]=2012
+    body: email=user_13%40example.com&plan=test-plan&card[number]=4242424242424242&card[exp_month]=11&card[exp_year]=2012
     headers:
       accept:
       - ! '*/*; q=0.5, application/xml'
@@ -27,23 +27,378 @@
       server:
       - nginx
       date:
-      - Tue, 14 Feb 2012 01:41:55 GMT
+      - Wed, 15 Feb 2012 00:46:14 GMT
       content-type:
       - application/json;charset=utf-8
       connection:
       - keep-alive
       content-length:
       - '804'
-    body: ! "{\n  \"account_balance\": 0,\n  \"created\": 1329183712,\n  \"email\":
-      \"user_16@example.com\",\n  \"id\": \"cus_yHQP9NYMLDU6N7\",\n  \"livemode\":
+    body: !str
+      str: ! "{\n  \"account_balance\": 0,\n  \"created\": 1329266772,\n  \"email\":
+        \"user_13@example.com\",\n  \"id\": \"cus_FhQRacYy8beXuR\",\n  \"livemode\":
+        false,\n  \"object\": \"customer\",\n  \"active_card\": {\n    \"country\":
+        \"US\",\n    \"exp_month\": 11,\n    \"exp_year\": 2012,\n    \"last4\": \"4242\",\n
+        \   \"object\": \"card\",\n    \"type\": \"Visa\"\n  },\n  \"next_recurring_charge\":
+        {\n    \"amount\": 1000,\n    \"date\": \"2012-03-15\"\n  },\n  \"subscription\":
+        {\n    \"current_period_end\": 1331772373,\n    \"current_period_start\":
+        1329266773,\n    \"customer\": \"cus_FhQRacYy8beXuR\",\n    \"object\": \"subscription\",\n
+        \   \"start\": 1329266773,\n    \"status\": \"active\",\n    \"plan\": {\n
+        \     \"amount\": 1000,\n      \"currency\": \"usd\",\n      \"id\": \"test-plan\",\n
+        \     \"interval\": \"month\",\n      \"livemode\": false,\n      \"name\":
+        \"test plan\",\n      \"object\": \"plan\"\n    }\n  }\n}\n"
+      net_http_res: &70232476227960 !ruby/object:Net::HTTPOK
+        http_version: '1.0'
+        code: '200'
+        message: ! '...'
+        header:
+          server:
+          - nginx
+          date:
+          - Wed, 15 Feb 2012 00:46:14 GMT
+          content-type:
+          - application/json;charset=utf-8
+          connection:
+          - keep-alive
+          content-length:
+          - '804'
+        body: !str
+          str: ! "{\n  \"account_balance\": 0,\n  \"created\": 1329266772,\n  \"email\":
+            \"user_13@example.com\",\n  \"id\": \"cus_FhQRacYy8beXuR\",\n  \"livemode\":
+            false,\n  \"object\": \"customer\",\n  \"active_card\": {\n    \"country\":
+            \"US\",\n    \"exp_month\": 11,\n    \"exp_year\": 2012,\n    \"last4\":
+            \"4242\",\n    \"object\": \"card\",\n    \"type\": \"Visa\"\n  },\n  \"next_recurring_charge\":
+            {\n    \"amount\": 1000,\n    \"date\": \"2012-03-15\"\n  },\n  \"subscription\":
+            {\n    \"current_period_end\": 1331772373,\n    \"current_period_start\":
+            1329266773,\n    \"customer\": \"cus_FhQRacYy8beXuR\",\n    \"object\":
+            \"subscription\",\n    \"start\": 1329266773,\n    \"status\": \"active\",\n
+            \   \"plan\": {\n      \"amount\": 1000,\n      \"currency\": \"usd\",\n
+            \     \"id\": \"test-plan\",\n      \"interval\": \"month\",\n      \"livemode\":
+            false,\n      \"name\": \"test plan\",\n      \"object\": \"plan\"\n    }\n
+            \ }\n}\n"
+          net_http_res: *70232476227960
+          args: &70232476226800
+            :method: :post
+            :url: https://api.stripe.com/v1/customers
+            :user: x17X8jIPdQe0j60gSnsUfLQXRTUPVuit
+            :headers:
+              :user_agent: Stripe/v1 RubyBindings/1.6.0
+              :x_stripe_client_user_agent: ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3
+                p0 (2011-10-30)","platform":"x86_64-darwin11.2.0","publisher":"stripe","uname":"Darwin
+                Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00
+                PDT 2011; root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
+            :open_timeout: 30
+            :payload:
+              :email: user_15@example.com
+              :plan: test-plan
+              :card:
+                :number: '4242424242424242'
+                :exp_month: '11'
+                :exp_year: '2012'
+            :timeout: 80
+            :verify_ssl: 1
+            :ssl_ca_file: /Users/bm5k/.rvm/gems/ruby-1.9.3-p0@stripe-example/gems/stripe-1.6.0/lib/data/ca-certificates.crt
+          code: 200
+        read: true
+        __read_body_previously_called: true
+      args: *70232476226800
+      code: 200
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers/cus_FhQRacYy8beXuR
+    body: 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"x86_64-darwin11.2.0","publisher":"stripe","uname":"Darwin
+        Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
+        root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
+      params:
+      - ''
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 15 Feb 2012 00:48:20 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '804'
+    body: ! "{\n  \"account_balance\": 0,\n  \"created\": 1329266772,\n  \"email\":
+      \"user_13@example.com\",\n  \"id\": \"cus_FhQRacYy8beXuR\",\n  \"livemode\":
       false,\n  \"object\": \"customer\",\n  \"active_card\": {\n    \"country\":
       \"US\",\n    \"exp_month\": 11,\n    \"exp_year\": 2012,\n    \"last4\": \"4242\",\n
       \   \"object\": \"card\",\n    \"type\": \"Visa\"\n  },\n  \"next_recurring_charge\":
-      {\n    \"amount\": 1000,\n    \"date\": \"2012-03-14\"\n  },\n  \"subscription\":
-      {\n    \"current_period_end\": 1331689313,\n    \"current_period_start\": 1329183713,\n
-      \   \"customer\": \"cus_yHQP9NYMLDU6N7\",\n    \"object\": \"subscription\",\n
-      \   \"start\": 1329183713,\n    \"status\": \"active\",\n    \"plan\": {\n      \"amount\":
+      {\n    \"amount\": 1000,\n    \"date\": \"2012-03-15\"\n  },\n  \"subscription\":
+      {\n    \"current_period_end\": 1331772373,\n    \"current_period_start\": 1329266773,\n
+      \   \"customer\": \"cus_FhQRacYy8beXuR\",\n    \"object\": \"subscription\",\n
+      \   \"start\": 1329266773,\n    \"status\": \"active\",\n    \"plan\": {\n      \"amount\":
       1000,\n      \"currency\": \"usd\",\n      \"id\": \"test-plan\",\n      \"interval\":
       \"month\",\n      \"livemode\": false,\n      \"name\": \"test plan\",\n      \"object\":
       \"plan\"\n    }\n  }\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers/Token+10
+    body: 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"x86_64-darwin11.2.0","publisher":"stripe","uname":"Darwin
+        Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
+        root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
+      params:
+      - ''
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 15 Feb 2012 01:15:16 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '121'
+    body: ! "{\n  \"error\": {\n    \"message\": \"No such customer: Token 10\",\n
+      \   \"param\": \"id\",\n    \"type\": \"invalid_request_error\"\n  }\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers/Token+11
+    body: 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"x86_64-darwin11.2.0","publisher":"stripe","uname":"Darwin
+        Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
+        root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
+      params:
+      - ''
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 15 Feb 2012 01:15:17 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '121'
+    body: ! "{\n  \"error\": {\n    \"message\": \"No such customer: Token+11\",\n
+      \   \"param\": \"id\",\n    \"type\": \"invalid_request_error\"\n  }\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers/Token+12
+    body: 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"x86_64-darwin11.2.0","publisher":"stripe","uname":"Darwin
+        Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
+        root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
+      params:
+      - ''
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 15 Feb 2012 01:15:19 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '121'
+    body: ! "{\n  \"error\": {\n    \"message\": \"No such customer: Token 12\",\n
+      \   \"param\": \"id\",\n    \"type\": \"invalid_request_error\"\n  }\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers/Token+13
+    body: 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"x86_64-darwin11.2.0","publisher":"stripe","uname":"Darwin
+        Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
+        root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
+      params:
+      - ''
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 15 Feb 2012 01:15:19 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '121'
+    body: ! "{\n  \"error\": {\n    \"message\": \"No such customer: Token 13\",\n
+      \   \"param\": \"id\",\n    \"type\": \"invalid_request_error\"\n  }\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers/Token+7
+    body: 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"x86_64-darwin11.2.0","publisher":"stripe","uname":"Darwin
+        Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
+        root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
+      params:
+      - ''
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 15 Feb 2012 01:16:16 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '120'
+    body: ! "{\n  \"error\": {\n    \"message\": \"No such customer: Token 7\",\n
+      \   \"param\": \"id\",\n    \"type\": \"invalid_request_error\"\n  }\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers/Token+8
+    body: 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"x86_64-darwin11.2.0","publisher":"stripe","uname":"Darwin
+        Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
+        root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
+      params:
+      - ''
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 15 Feb 2012 01:16:17 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '120'
+    body: ! "{\n  \"error\": {\n    \"message\": \"No such customer: Token 8\",\n
+      \   \"param\": \"id\",\n    \"type\": \"invalid_request_error\"\n  }\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers/Token+9
+    body: 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"x86_64-darwin11.2.0","publisher":"stripe","uname":"Darwin
+        Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
+        root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
+      params:
+      - ''
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 404
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 15 Feb 2012 01:16:18 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '120'
+    body: ! "{\n  \"error\": {\n    \"message\": \"No such customer: Token 9\",\n
+      \   \"param\": \"id\",\n    \"type\": \"invalid_request_error\"\n  }\n}\n"
     http_version: '1.1'
