@@ -1,3 +1,5 @@
 %h1 Hey, Listen!
 
 %p= link_to 'subscribe!', plans_path
+- if user_signed_in?
+  %p= link_to 'edit subscription!', edit_subscription_path(current_user.subscription)

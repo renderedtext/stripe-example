@@ -3,7 +3,7 @@
   request: !ruby/struct:VCR::Request
     method: :post
     uri: https://x17X8jIPdQe0j60gSnsUfLQXRTUPVuit:@api.stripe.com:443/v1/customers
-    body: email=user_18%40example.com&plan=test-plan&card=
+    body: email=user_18%40example.com&plan=another-plan&card=
     headers:
       accept:
       - ! '*/*; q=0.5, application/xml'
@@ -16,7 +16,7 @@
         Mars.local 11.2.0 Darwin Kernel Version 11.2.0: Tue Aug  9 20:54:00 PDT 2011;
         root:xnu-1699.24.8~1/RELEASE_X86_64 x86_64"}'
       content-length:
-      - '48'
+      - '51'
       content-type:
       - application/x-www-form-urlencoded
   response: !ruby/struct:VCR::Response
@@ -27,7 +27,7 @@
       server:
       - nginx
       date:
-      - Wed, 15 Feb 2012 01:00:15 GMT
+      - Wed, 15 Feb 2012 01:44:35 GMT
       content-type:
       - application/json;charset=utf-8
       connection:
