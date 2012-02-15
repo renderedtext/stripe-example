@@ -27,10 +27,10 @@ describe Subscription do
 
   describe 'credit card info' do
 
-    use_vcr_cassette 'billing/customer_create', :record => :all
 
     let(:plan) { Plan.first }
     let(:card) {{ number: '4242424242424242', exp_month: '11', exp_year: '2012' }}
+    use_vcr_cassette 'billing/customer_create', :record => :new_episodes
 
     before do
       @subscription = user.build_subscription plan: plan, stripe_card_token: card

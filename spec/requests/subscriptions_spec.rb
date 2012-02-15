@@ -136,7 +136,7 @@ describe 'Subscriptions' do
 
     let(:other_plan) { Plan.last }
 
-    use_vcr_cassette 'stripe/billing-plan-change', :record => :all
+    use_vcr_cassette 'stripe/billing-plan-change', :record => :new_episodes
 
     before do
       @subscription = user.build_subscription plan: plan, stripe_card_token: card
