@@ -2,6 +2,12 @@ require 'spec_helper'
 
 describe Webhook do
 
+  its(:livemode)            { should validate :presence   }
+  its(:object)              { should validate :presence   }
+  its(:stripe_webhook_id)   { should validate :presence   }
+  its(:stripe_webhook_id)   { should validate :uniqueness }
+  its(:stripe_webhook_type) { should validate :presence   }
+
   describe '#stripe_customer_id' do
 
     context 'object["customer"] is nil' do
