@@ -1,16 +1,18 @@
-RSpec::Matchers.define :validate do |kind, options|
+RSpec::Matchers.define :validate do |kind, expected_options|
 
-  field      = example.metadata[:example_group][:description_args].first
-  validators = described_class.validators_on field
+  field     = example.metadata[:example_group][:description_args].first
+  validator = described_class.validators_on(field).detect { |v| v.kind == kind }
+  options   = validator.options
 
-  description { "validate the #{ kind } of #{ field.inspect }" }
+  diff      = expected_options.present? ? options.diff(expected_options) : nil
 
-  match_for_should do
-    validators.any? { |v| v.kind == kind }
+  description do
+    msg  = "validate the #{ kind } of #{ field.inspect }"
+    msg += " with options: #{ expected_options.inspect }" unless expected_options.blank?
+    msg
   end
 
-  match_for_should_not do
-    validators.none? { |v| v.kind == kind }
-  end
+  match_for_should     { validator.present? and diff.blank? }
+  match_for_should_not { validator.blank? }
 
 end
