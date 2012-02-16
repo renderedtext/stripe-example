@@ -13,7 +13,12 @@ RSpec::Matchers.define :validate do |kind, expected_options|
   end
 
   failure_message_for_should do
-    "Expected #{ described_class } to validate the #{ kind } of #{ field.inspect }"
+    msg  = "Expected #{ described_class } to validate the #{ kind } of #{ field.inspect }"
+    if expected_options.present? and diff.present?
+      msg += "\n with options: #{ expected_options.inspect }"
+      msg += "\n actual options: #{ options.inspect }"
+    end
+    msg
   end
 
   failure_message_for_should_not do
