@@ -209,6 +209,8 @@ GEM
     uglifier (1.2.2)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    validation_matcher (0.0.1)
+      rspec (~> 2.8.0)
     vcr (1.11.3)
     warden (1.1.0)
       rack (>= 1.0)
@@ -248,5 +250,6 @@ DEPENDENCIES
   stripe
   syntax
   uglifier (>= 1.0.3)
+  validation_matcher (~> 0.0.1)
   vcr
   webmock
