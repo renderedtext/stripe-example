@@ -5,24 +5,10 @@ describe Subscription do
   let(:plan) { Plan.first    }
   let(:user) { Factory :user }
 
-  it 'requires a unique user' do
-    another_user = Factory :user
-
-    Factory.build( :subscription, user:          nil).should_not be_valid
-    Factory.create(:subscription, user:         user).should     be_valid
-    Factory.build( :subscription, user:         user).should_not be_valid
-    Factory.create(:subscription, user: another_user).should     be_valid
-  end
-
-  it 'requires a plan' do
-    Factory.build( :subscription, plan:  nil).should_not be_valid
-    Factory.create(:subscription, plan: plan).should     be_valid
-  end
-
-  it 'requires a stripe customer token' do
-    Factory.build(:subscription, plan: plan, stripe_customer_token: nil).should_not be_valid
-    Factory.build(:subscription, plan: plan, stripe_customer_token: '1').should     be_valid
-  end
+  its(:plan_id)               { should validate :presence   }
+  its(:stripe_customer_token) { should validate :presence   }
+  its(:user_id)               { should validate :presence   }
+  its(:user_id)               { should validate :uniqueness }
 
   describe 'credit card info' do
 
