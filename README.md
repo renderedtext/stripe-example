@@ -8,6 +8,7 @@ Reference implementation of stripe interface
 URLs:
 
 - Github:             https://github.com/bm5k/stripe-example/
+- Documentation:      http://rubydoc.info/github/BM5k/stripe-example/master/frames
 - Staging server:     https://stripe-example.herokuapp.com
 
 ## Configuration
