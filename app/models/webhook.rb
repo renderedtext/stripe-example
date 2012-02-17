@@ -7,7 +7,7 @@ class Webhook < ActiveRecord::Base
   validates :object,              presence: true
   validates :livemode,            presence: true
 
-  before_validation :set_user, :on => :create 
+  before_validation :set_user, :on => :create
   after_create      :send_notification
 
   def stripe_customer_id

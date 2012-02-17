@@ -1,6 +1,6 @@
 module ActiveSupport
 
-  # see https://github.com/BM5k/stripe-example/wiki/Stripe-Webhook-Notifications 
+  # see https://github.com/BM5k/stripe-example/wiki/Stripe-Webhook-Notifications
   # for more information on how to subscribe to webhook related notifications
 
   # For example, you can log all of the stripe webhooks
