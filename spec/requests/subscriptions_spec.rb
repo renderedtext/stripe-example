@@ -114,18 +114,22 @@ describe 'Subscriptions' do
         # create a Stripe::Customer manually so that we know what will be returned when
         # Stripe::Customer#create is called by Subscription#save_with_payment
         customer = Stripe::Customer.create card: card, plan: plan.slug
-        Stripe::Customer.stub!(:create).and_return(customer)
+        Stripe::Customer.stub!(:retrieve).and_return(customer)
+        customer.stub!(:save).and_return(customer)
 
         # These fields don't actually get passed to Stripe::Customer#create,
         # because we're using stub!, however we need to make sure they are on the form.
-        fill_in_fields card_number: '4111111111111111',
-                       card_code:   '789',
-                       card_zip:    '19877'
+        fill_in_fields card_number:                    '4111111111111111',
+                       card_code:                      '789',
+                       card_zip:                       '19877',
+                       subscription_stripe_card_token: customer.id
 
         select card[:exp_month].to_s.gsub(/^0/, ''), from: 'card_month' # garh
         select card[:exp_year].to_s,                 from: 'card_year'
 
         click_button 'Update'
+
+        page.should have_content "Subscription updated!"
       end
 
     end

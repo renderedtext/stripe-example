@@ -28,7 +28,7 @@ class SubscriptionsController < ApplicationController
 
     if @subscription.update_with_payment params[:subscription]
       flash.now[:success] = 'Subscription updated!'
-      redirect_to root_path
+      render :edit
     else
       flash.now[:error] = 'Unable to update billing!'
       render :edit
