@@ -4,10 +4,10 @@ class CreateWebhooks < ActiveRecord::Migration
     create_table :webhooks do |t|
       t.belongs_to :user
 
-      t.string  :stripe_webhook_id,   null: false
-      t.string  :stripe_webhook_type, null: false
-      t.text    :object,              null: false
-      t.boolean :livemode,            null: false, default: false
+      t.string  :stripe_webhook_id,   null:    false 
+      t.string  :stripe_webhook_type, null:    false 
+      t.text    :object,              null:    false 
+      t.boolean :livemode,            default: false 
 
       t.timestamps
     end

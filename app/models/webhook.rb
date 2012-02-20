@@ -5,16 +5,15 @@ class Webhook < ActiveRecord::Base
   validates              :stripe_webhook_id,   presence: true, uniqueness: true
   validates              :stripe_webhook_type, presence: true
   validates              :object,              presence: true
-  validates_inclusion_of :livemode,            :in => [true, false]
 
   before_validation :set_user, :on => :create
   after_create      :send_notification
 
   def self.initialize_from_stripe attrs
     new stripe_webhook_id:   attrs['id'],
-        livemode:          attrs['livemode'],
+        livemode:            attrs['livemode'],
         stripe_webhook_type: attrs['type'],
-        data:              attrs['data']
+        data:                attrs['data']
   end
 
   def self.create_from_stripe! attrs
