@@ -19,7 +19,7 @@ module StripeExample
     config.active_record.identity_map = true
     config.assets.enabled             = true
     config.assets.version             = '1.0'
-    config.autoload_paths             += %W[ #{ config.root }/lib ]
+    config.autoload_paths            += %W[ #{ config.root }/lib ]
     config.encoding                   = 'utf-8'
     config.filter_parameters         += [:password]
     config.i18n.default_locale        = :en

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120128045950) do
+ActiveRecord::Schema.define(:version => 20120215185005) do
 
   create_table "plans", :force => true do |t|
     t.string   "name",                                     :null => false
@@ -69,5 +69,18 @@ ActiveRecord::Schema.define(:version => 20120128045950) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "webhooks", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "stripe_webhook_id",                      :null => false
+    t.string   "stripe_webhook_type",                    :null => false
+    t.text     "object",                                 :null => false
+    t.boolean  "livemode",            :default => false, :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+  end
+
+  add_index "webhooks", ["stripe_webhook_id"], :name => "index_webhooks_on_stripe_webhook_id", :unique => true
+  add_index "webhooks", ["user_id"], :name => "index_webhooks_on_user_id"
 
 end

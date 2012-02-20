@@ -1,5 +1,7 @@
 StripeExample::Application.routes.draw do
 
+  resources :webhooks
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users

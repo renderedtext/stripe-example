@@ -33,6 +33,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'launchy'
   gem 'syntax'
+  gem 'validation_matcher', '~> 0.0.1'
   gem 'vcr'
   gem 'webmock'
 end

@@ -1,0 +1,59 @@
+{
+  "action": "index",
+  "controller": "stripe_webhook",
+  "created": 1326853478,
+  "data": {
+    "object": {
+      "amount": 100,
+      "card": {
+        "country": null,
+        "exp_month": 1,
+        "exp_year": 2012,
+        "id": "cc_00000000000000",
+        "last4": "0002",
+        "object": "card",
+        "type": "Visa"
+      },
+      "created": 1327102285,
+      "currency": "usd",
+      "fee": null,
+      "id": "ch_00000000000000",
+      "livemode": false,
+      "object": "charge",
+      "paid": false,
+      "refunded": false
+    }
+  },
+  "format": "json",
+  "id": "note_00000000000000",
+  "livemode": false,
+  "stripe_webhook": {
+    "created": 1326853478,
+    "data": {
+      "object": {
+        "amount": 100,
+        "card": {
+          "country": null,
+          "exp_month": 1,
+          "exp_year": 2012,
+          "id": "cc_00000000000000",
+          "last4": "0002",
+          "object": "card",
+          "type": "Visa"
+        },
+        "created": 1327102285,
+        "currency": "usd",
+        "fee": null,
+        "id": "ch_00000000000000",
+        "livemode": false,
+        "object": "charge",
+        "paid": false,
+        "refunded": false
+      }
+    },
+    "id": "note_00000000000000",
+    "livemode": false,
+    "type": "charge.failed"
+  },
+  "type": "charge.failed"
+}
