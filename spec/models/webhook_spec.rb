@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe Webhook do
 
-  its(:livemode)            { should validate :inclusion  }
   its(:object)              { should validate :presence   }
   its(:stripe_webhook_id)   { should validate :presence   }
   its(:stripe_webhook_id)   { should validate :uniqueness }
