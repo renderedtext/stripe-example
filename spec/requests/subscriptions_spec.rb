@@ -99,7 +99,7 @@ describe 'Subscriptions' do
 
     end
 
-    context 'with simulated svalid data' do
+    context 'with simulated valid data' do
 
       use_vcr_cassette 'stripe/billing-update-success'
 

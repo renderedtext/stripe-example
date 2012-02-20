@@ -1,0 +1,88 @@
+{
+  "action": "index",
+  "controller": "stripe_webhook",
+  "created": 1326853478,
+  "data": {
+    "object": {
+      "attempted": true,
+      "charge": "ch_00000000000000",
+      "closed": true,
+      "customer": "cus_00000000000000",
+      "date": 1327101120,
+      "id": "in_00000000000000",
+      "lines": {
+        "subscriptions": [
+          {
+            "amount": 999,
+            "period": {
+              "end": 1329779520,
+              "start": 1327101120
+            },
+            "plan": {
+              "amount": 999,
+              "currency": "usd",
+              "id": "plan",
+              "interval": "month",
+              "livemode": false,
+              "name": "New Plan",
+              "object": "plan"
+            }
+          }
+        ]
+      },
+      "livemode": false,
+      "object": "invoice",
+      "paid": false,
+      "period_end": 1327101120,
+      "period_start": 1327101120,
+      "subtotal": 999,
+      "total": 999
+    }
+  },
+  "id": "note_00000000000000",
+  "livemode": false,
+  "stripe_webhook": {
+    "created": 1326853478,
+    "data": {
+      "object": {
+        "attempted": true,
+        "charge": "ch_00000000000000",
+        "closed": true,
+        "customer": "cus_00000000000000",
+        "date": 1327101120,
+        "id": "in_00000000000000",
+        "lines": {
+          "subscriptions": [
+            {
+              "amount": 999,
+              "period": {
+                "end": 1329779520,
+                "start": 1327101120
+              },
+              "plan": {
+                "amount": 999,
+                "currency": "usd",
+                "id": "plan",
+                "interval": "month",
+                "livemode": false,
+                "name": "New Plan",
+                "object": "plan"
+              }
+            }
+          ]
+        },
+        "livemode": false,
+        "object": "invoice",
+        "paid": false,
+        "period_end": 1327101120,
+        "period_start": 1327101120,
+        "subtotal": 999,
+        "total": 999
+      }
+    },
+    "id": "note_00000000000000",
+    "livemode": false,
+    "type": "invoice.payment_failed"
+  },
+  "type": "invoice.payment_failed"
+}
