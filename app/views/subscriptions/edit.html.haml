@@ -22,3 +22,6 @@
   = render 'card_fields', locals: { f: f }
 
   = f.submit 'Update your credit card', class: 'btn primary large'
+
+= link_to "cancel account", subscription_path(@subscription), :method => :delete
+
