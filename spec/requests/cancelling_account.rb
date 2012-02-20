@@ -6,7 +6,7 @@ describe 'Cancelling accounts' do
   let(:user)         { Factory :user }
   let(:subscription) { Factory :subscription, :user => @user,
                                               :plan => @plan  }
-  
+
   before do
     visit edit_subscription_page @subscription
   end
