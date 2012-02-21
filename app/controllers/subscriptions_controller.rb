@@ -28,7 +28,7 @@ class SubscriptionsController < ApplicationController
 
     if @subscription.update_with_payment params[:subscription]
       flash.now[:success] = 'Subscription updated!'
-      redirect_to root_path
+      render :edit
     else
       flash.now[:error] = 'Unable to update billing!'
       render :edit
@@ -43,7 +43,19 @@ class SubscriptionsController < ApplicationController
     else
       flash.now[:error] = 'Unable to change your plan.'
     end
-      render :edit
+    render :edit
+  end
+
+  def destroy
+    @subscription  = current_user.subscription
+    customer_token = @subscription.stripe_customer_token
+    customer = Stripe::Customer.retrieve(customer_token)
+    
+    customer.cancel_subscription
+    current_user.subscription.destroy
+
+    redirect_to root_path
+    flash[:success] = 'account cancelled. :('
   end
 
 end

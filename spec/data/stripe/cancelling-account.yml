@@ -1,0 +1,196 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://jFYPBMXfFCb415rTQLu5ve0V10E1YBBL:@api.stripe.com:443/v1/customers
+    body: email=user_1%40example.com&plan=another-plan&card[number]=4242424242424242&card[cvc]=123&card[address_zip]=12312&card[exp_month]=5&card[exp_year]=2012
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"i686-linux","publisher":"stripe","uname":"Linux
+        stinkpad 3.2.5-3.fc16.i686.PAE #1 SMP Thu Feb 9 02:02:37 UTC 2012 i686 i686
+        i386 GNU/Linux"}'
+      content-length:
+      - '150'
+      content-type:
+      - application/x-www-form-urlencoded
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Mon, 20 Feb 2012 06:34:06 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '894'
+    body: !str
+      str: ! "{\n  \"account_balance\": 0,\n  \"created\": 1329719644,\n  \"email\":
+        \"user_1@example.com\",\n  \"id\": \"cus_0iyCuww60oM0W9\",\n  \"livemode\":
+        false,\n  \"object\": \"customer\",\n  \"active_card\": {\n    \"address_zip\":
+        \"12312\",\n    \"address_zip_check\": \"pass\",\n    \"country\": \"US\",\n
+        \   \"cvc_check\": \"pass\",\n    \"exp_month\": 5,\n    \"exp_year\": 2012,\n
+        \   \"last4\": \"4242\",\n    \"object\": \"card\",\n    \"type\": \"Visa\"\n
+        \ },\n  \"next_recurring_charge\": {\n    \"amount\": 1500,\n    \"date\":
+        \"2012-03-20\"\n  },\n  \"subscription\": {\n    \"current_period_end\": 1332225244,\n
+        \   \"current_period_start\": 1329719644,\n    \"customer\": \"cus_0iyCuww60oM0W9\",\n
+        \   \"object\": \"subscription\",\n    \"start\": 1329719644,\n    \"status\":
+        \"active\",\n    \"plan\": {\n      \"amount\": 1500,\n      \"currency\":
+        \"usd\",\n      \"id\": \"another-plan\",\n      \"interval\": \"month\",\n
+        \     \"livemode\": false,\n      \"name\": \"Another Plan\",\n      \"object\":
+        \"plan\"\n    }\n  }\n}\n"
+      net_http_res: &106903000 !ruby/object:Net::HTTPOK
+        http_version: '1.0'
+        code: '200'
+        message: ! '...'
+        header:
+          server:
+          - nginx
+          date:
+          - Mon, 20 Feb 2012 06:34:06 GMT
+          content-type:
+          - application/json;charset=utf-8
+          connection:
+          - keep-alive
+          content-length:
+          - '894'
+        body: !str
+          str: ! "{\n  \"account_balance\": 0,\n  \"created\": 1329719644,\n  \"email\":
+            \"user_1@example.com\",\n  \"id\": \"cus_0iyCuww60oM0W9\",\n  \"livemode\":
+            false,\n  \"object\": \"customer\",\n  \"active_card\": {\n    \"address_zip\":
+            \"12312\",\n    \"address_zip_check\": \"pass\",\n    \"country\": \"US\",\n
+            \   \"cvc_check\": \"pass\",\n    \"exp_month\": 5,\n    \"exp_year\":
+            2012,\n    \"last4\": \"4242\",\n    \"object\": \"card\",\n    \"type\":
+            \"Visa\"\n  },\n  \"next_recurring_charge\": {\n    \"amount\": 1500,\n
+            \   \"date\": \"2012-03-20\"\n  },\n  \"subscription\": {\n    \"current_period_end\":
+            1332225244,\n    \"current_period_start\": 1329719644,\n    \"customer\":
+            \"cus_0iyCuww60oM0W9\",\n    \"object\": \"subscription\",\n    \"start\":
+            1329719644,\n    \"status\": \"active\",\n    \"plan\": {\n      \"amount\":
+            1500,\n      \"currency\": \"usd\",\n      \"id\": \"another-plan\",\n
+            \     \"interval\": \"month\",\n      \"livemode\": false,\n      \"name\":
+            \"Another Plan\",\n      \"object\": \"plan\"\n    }\n  }\n}\n"
+          net_http_res: *106903000
+          args: &107396610
+            :method: :post
+            :url: https://api.stripe.com/v1/customers
+            :user: jFYPBMXfFCb415rTQLu5ve0V10E1YBBL
+            :headers:
+              :user_agent: Stripe/v1 RubyBindings/1.6.0
+              :x_stripe_client_user_agent: ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3
+                p0 (2011-10-30)","platform":"i686-linux","publisher":"stripe","uname":"Linux
+                stinkpad 3.2.5-3.fc16.i686.PAE #1 SMP Thu Feb 9 02:02:37 UTC 2012
+                i686 i686 i386 GNU/Linux"}'
+            :open_timeout: 30
+            :payload:
+              :email: user_2@example.com
+              :plan: another-plan
+              :card:
+                :number: '4242424242424242'
+                :cvc: '123'
+                :address_zip: '12312'
+                :exp_month: 5
+                :exp_year: 2012
+            :timeout: 80
+            :verify_ssl: 1
+            :ssl_ca_file: /home/rrix/.rvm/gems/ruby-1.9.3-p0@stripe-example/gems/stripe-1.6.0/lib/data/ca-certificates.crt
+          code: 200
+        read: true
+        __read_body_previously_called: true
+      args: *107396610
+      code: 200
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :get
+    uri: https://jFYPBMXfFCb415rTQLu5ve0V10E1YBBL:@api.stripe.com:443/v1/customers/cus_0iyCuww60oM0W9
+    body: 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"i686-linux","publisher":"stripe","uname":"Linux
+        stinkpad 3.2.5-3.fc16.i686.PAE #1 SMP Thu Feb 9 02:02:37 UTC 2012 i686 i686
+        i386 GNU/Linux"}'
+      params:
+      - ''
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Mon, 20 Feb 2012 06:34:09 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '894'
+    body: ! "{\n  \"account_balance\": 0,\n  \"created\": 1329719644,\n  \"email\":
+      \"user_1@example.com\",\n  \"id\": \"cus_0iyCuww60oM0W9\",\n  \"livemode\":
+      false,\n  \"object\": \"customer\",\n  \"active_card\": {\n    \"address_zip\":
+      \"12312\",\n    \"address_zip_check\": \"pass\",\n    \"country\": \"US\",\n
+      \   \"cvc_check\": \"pass\",\n    \"exp_month\": 5,\n    \"exp_year\": 2012,\n
+      \   \"last4\": \"4242\",\n    \"object\": \"card\",\n    \"type\": \"Visa\"\n
+      \ },\n  \"next_recurring_charge\": {\n    \"amount\": 1500,\n    \"date\": \"2012-03-20\"\n
+      \ },\n  \"subscription\": {\n    \"current_period_end\": 1332225244,\n    \"current_period_start\":
+      1329719644,\n    \"customer\": \"cus_0iyCuww60oM0W9\",\n    \"object\": \"subscription\",\n
+      \   \"start\": 1329719644,\n    \"status\": \"active\",\n    \"plan\": {\n      \"amount\":
+      1500,\n      \"currency\": \"usd\",\n      \"id\": \"another-plan\",\n      \"interval\":
+      \"month\",\n      \"livemode\": false,\n      \"name\": \"Another Plan\",\n
+      \     \"object\": \"plan\"\n    }\n  }\n}\n"
+    http_version: '1.1'
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :delete
+    uri: https://jFYPBMXfFCb415rTQLu5ve0V10E1YBBL:@api.stripe.com:443/v1/customers/cus_0iyCuww60oM0W9/subscription
+    body: 
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"i686-linux","publisher":"stripe","uname":"Linux
+        stinkpad 3.2.5-3.fc16.i686.PAE #1 SMP Thu Feb 9 02:02:37 UTC 2012 i686 i686
+        i386 GNU/Linux"}'
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Mon, 20 Feb 2012 06:34:10 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '426'
+    body: ! "{\n  \"canceled_at\": 1329719650,\n  \"current_period_end\": 1332225244,\n
+      \ \"current_period_start\": 1329719644,\n  \"customer\": \"cus_0iyCuww60oM0W9\",\n
+      \ \"ended_at\": 1329719650,\n  \"object\": \"subscription\",\n  \"start\": 1329719644,\n
+      \ \"status\": \"canceled\",\n  \"plan\": {\n    \"amount\": 1500,\n    \"currency\":
+      \"usd\",\n    \"id\": \"another-plan\",\n    \"interval\": \"month\",\n    \"livemode\":
+      false,\n    \"name\": \"Another Plan\",\n    \"object\": \"plan\"\n  }\n}\n"
+    http_version: '1.1'
