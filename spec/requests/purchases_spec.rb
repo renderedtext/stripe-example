@@ -2,7 +2,7 @@ require 'spec_helper.rb'
 
 describe 'A la carte purchases' do
 
-  use_vcr_cassette 'stripe/ala-carte-purchases', record: :all
+  use_vcr_cassette 'stripe/ala-carte-purchases', record: :new_episodes
 
   let (:user) { Factory        :user }
 
