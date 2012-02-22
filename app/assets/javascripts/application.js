@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require stripe_handler
 //= require_tree .
