@@ -1,4 +1,4 @@
-= form_for @purchase do |f|
+= form_for @purchase, html: { class: 'stripe' } do |f|
   .error_messages
     - if @purchase.errors.any?
       %h2 Something went wrong!

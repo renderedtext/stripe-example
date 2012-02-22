@@ -1,7 +1,10 @@
+jQuery ->
+  Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
+  stripe_handler.setupForm()
+
 window.stripe_handler =
-  setupForm: (my_form_id) ->
-    stripe_handler.form = my_form_id
-    $('form[id*="' + stripe_handler.form + '"]').submit ->
+  setupForm: () ->
+    $("form.stripe").submit ->
       $('input[type=submit]').attr('disabled', true)
       if $('#card_number').length
         stripe_handler.processCard()
@@ -15,13 +18,13 @@ window.stripe_handler =
       cvc:         $('#card_code').val()
       exp_month:   $('#card_month').val()
       exp_year:    $('#card_year').val()
-      address_zip: $('#'+ stripe_handler.form + '_card_zip').val()
+      address_zip: $("#card_zip").val()
     Stripe.createToken(card, stripe_handler.handleStripeResponse)
 
   handleStripeResponse: (status, response) ->
     if status == 200
-      $('#' + stripe_handler.form + '_stripe_card_token').val(response.id)
-      $('form[id*="' + stripe_handler.form + '"]')[0].submit()
+      $('input[id$="stripe_card_token"]').val(response.id)
+      $("form.stripe")[0].submit()
     else
       parent = $('.error_messages').find('ul')[0]
       if parent

@@ -5,7 +5,6 @@ class Purchase < ActiveRecord::Base
   attr_accessor :stripe_card_token
 
   def save_with_payment
-    binding.pry
     charge = Stripe::Charge.create amount:      (item.price * 100).to_i,
                                    card:        stripe_card_token,
                                    currency:    'usd',
