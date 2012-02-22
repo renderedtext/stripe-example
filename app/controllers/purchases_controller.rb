@@ -13,9 +13,10 @@ class PurchasesController < ApplicationController
 
   def create
     @purchase = Purchase.new :user              => current_user,
-                             :item              => Item.find(params[:purchase][:item_id])
+                             :item              => Item.find(params[:purchase][:item_id]),
+                             :stripe_card_token => params[:purchase][:stripe_card_token]
 
-    if @purchase.save_with_payment params[:purchase][:stripe_card_token]
+    if @purchase.save_with_payment 
       flash[:success] = "Thanks for purchasing!"
       redirect_to purchases_path
     else

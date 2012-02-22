@@ -7,7 +7,7 @@
           %li= msg
 
   = f.hidden_field :item_id, value: @item.id
-  = hidden_field_tag :stripe_card_token
+  = f.hidden_field :stripe_card_token
 
   = render 'card_fields', locals: { f: f }
 

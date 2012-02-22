@@ -2,7 +2,9 @@ class Purchase < ActiveRecord::Base
   belongs_to :user
   belongs_to :item
 
-  def save_with_payment stripe_card_token
+  attr_accessor :stripe_card_token
+
+  def save_with_payment
     binding.pry
     charge = Stripe::Charge.create amount:      (item.price * 100).to_i,
                                    card:        stripe_card_token,
