@@ -15,7 +15,8 @@ class User < ActiveRecord::Base
                   :password_confirmation,
                   :remember_me
 
-  has_one :subscription
-  has_one :plan, :through => :subscription
+  has_one  :subscription
+  has_one  :plan, :through => :subscription
+  has_many :purchases
 
 end
