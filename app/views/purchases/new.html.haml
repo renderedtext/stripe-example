@@ -1,0 +1,14 @@
+= form_for @purchase do |f|
+  .error_messages
+    - if @purchase.errors.any?
+      %h2 Something went wrong!
+      %ul.errors
+        - @purchase.errors.full_messages.each do |msg|
+          %li= msg
+
+  = f.hidden_field :item_id, value: @item.id
+  = hidden_field_tag :stripe_card_token
+
+  = render 'card_fields', locals: { f: f }
+
+  = f.submit "Purchase the #{ @item.name }", class: 'btn primary large'
