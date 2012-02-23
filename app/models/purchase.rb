@@ -2,9 +2,9 @@ class Purchase < ActiveRecord::Base
   belongs_to :user
   belongs_to :item
 
-  validates :price,   :presence => true
-  validates :item, :presence => true
-  validates :user, :presence => true
+  validates :price, :presence => true
+  validates :item,  :presence => true
+  validates :user,  :presence => true
 
   attr_accessor :stripe_card_token
 
