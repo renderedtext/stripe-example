@@ -19,7 +19,7 @@ FactoryGirl.define do
 
   factory :item do
     sequence(:name)  { |n| "Item #{ n }" }
-    sequence(:price) { |n| (n - 1) * 2.25 }
+    sequence(:price) { |n| (n) * 2.25 }
   end
 
 end

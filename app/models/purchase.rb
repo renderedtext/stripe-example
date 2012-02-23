@@ -2,9 +2,17 @@ class Purchase < ActiveRecord::Base
   belongs_to :user
   belongs_to :item
 
+  validates :price,   :presence => true
+  validates :item, :presence => true
+  validates :user, :presence => true
+
   attr_accessor :stripe_card_token
 
   def save_with_payment
+    if !user or !item
+      return false
+    end
+
     charge = Stripe::Charge.create amount:      (item.price * 100).to_i,
                                    card:        stripe_card_token,
                                    currency:    'usd',
