@@ -8,3 +8,9 @@ def valid_card_data
     exp_year:    exp_date.year
   }
 end
+
+def load_webhook_json webhook_name
+  path = Rails.root.join *%W[ spec data stripe #{ webhook_name }.json ]
+  json = File.open(path).read
+  JSON.parse json
+end
