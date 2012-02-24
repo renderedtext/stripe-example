@@ -17,4 +17,9 @@ FactoryGirl.define do
     sequence(:stripe_customer_token) { |n| "Token #{ n }" }
   end
 
+  factory :item do
+    sequence(:name)  { |n| "Item #{ n }" }
+    sequence(:price) { |n| (n) * 2.25 }
+  end
+
 end

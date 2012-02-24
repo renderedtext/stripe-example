@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215185005) do
+ActiveRecord::Schema.define(:version => 20120222010440) do
+
+  create_table "items", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.decimal  "price",       :precision => 8, :scale => 2, :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
 
   create_table "plans", :force => true do |t|
     t.string   "name",                                     :null => false
@@ -23,6 +31,22 @@ ActiveRecord::Schema.define(:version => 20120215185005) do
 
   add_index "plans", ["price"], :name => "index_plans_on_price"
   add_index "plans", ["slug"], :name => "index_plans_on_slug", :unique => true
+
+  create_table "purchases", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "user_id"
+    t.boolean  "live",                                              :default => false
+    t.boolean  "paid",                                              :default => false
+    t.boolean  "refunded",                                          :default => false
+    t.decimal  "price",               :precision => 8, :scale => 2,                    :null => false
+    t.integer  "fee"
+    t.string   "card_type"
+    t.string   "card_zip"
+    t.string   "last_four"
+    t.string   "stripe_charge_token"
+    t.datetime "created_at",                                                           :null => false
+    t.datetime "updated_at",                                                           :null => false
+  end
 
   create_table "rails_admin_histories", :force => true do |t|
     t.integer  "item"

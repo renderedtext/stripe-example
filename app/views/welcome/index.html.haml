@@ -3,3 +3,5 @@
 %p= link_to 'subscribe!', plans_path
 - if user_signed_in?
   %p= link_to 'edit subscription!', edit_subscription_path(current_user.subscription)
+
+%p= link_to 'purchases', purchases_path

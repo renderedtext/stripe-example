@@ -1,0 +1,45 @@
+---
+- !ruby/struct:VCR::HTTPInteraction
+  request: !ruby/struct:VCR::Request
+    method: :post
+    uri: https://jFYPBMXfFCb415rTQLu5ve0V10E1YBBL:@api.stripe.com:443/v1/charges
+    body: amount=10000&card[number]=4242424242424242&card[cvc]=123&card[address_zip]=12312&card[exp_month]=5&card[exp_year]=2012&currency=usd&description=user_1%40example.com%20purchased%20Item%201
+    headers:
+      accept:
+      - ! '*/*; q=0.5, application/xml'
+      accept-encoding:
+      - gzip, deflate
+      user-agent:
+      - Stripe/v1 RubyBindings/1.6.0
+      x-stripe-client-user-agent:
+      - ! '{"bindings_version":"1.6.0","lang":"ruby","lang_version":"1.9.3 p0 (2011-10-30)","platform":"i686-linux","publisher":"stripe","uname":"Linux
+        stinkpad 3.2.5-3.fc16.i686.PAE #1 SMP Thu Feb 9 02:02:37 UTC 2012 i686 i686
+        i386 GNU/Linux"}'
+      content-length:
+      - '187'
+      content-type:
+      - application/x-www-form-urlencoded
+  response: !ruby/struct:VCR::Response
+    status: !ruby/struct:VCR::ResponseStatus
+      code: 200
+      message: ! '...'
+    headers:
+      server:
+      - nginx
+      date:
+      - Wed, 22 Feb 2012 06:11:01 GMT
+      content-type:
+      - application/json;charset=utf-8
+      connection:
+      - keep-alive
+      content-length:
+      - '494'
+    body: ! "{\n  \"amount\": 10000,\n  \"created\": 1329891060,\n  \"currency\":
+      \"usd\",\n  \"description\": \"user_1@example.com purchased Item 1\",\n  \"disputed\":
+      false,\n  \"fee\": 0,\n  \"id\": \"ch_b4hjiQ7QRoRQSH\",\n  \"livemode\": false,\n
+      \ \"object\": \"charge\",\n  \"paid\": true,\n  \"refunded\": false,\n  \"card\":
+      {\n    \"address_zip\": \"12312\",\n    \"address_zip_check\": \"pass\",\n    \"country\":
+      \"US\",\n    \"cvc_check\": \"pass\",\n    \"exp_month\": 5,\n    \"exp_year\":
+      2012,\n    \"last4\": \"4242\",\n    \"object\": \"card\",\n    \"type\": \"Visa\"\n
+      \ }\n}\n"
+    http_version: '1.1'

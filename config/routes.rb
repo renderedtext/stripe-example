@@ -6,8 +6,10 @@ StripeExample::Application.routes.draw do
 
   devise_for :users
 
-  get '/signup/:plan' => 'plans#show',  as: 'signup'
-  get '/plans/'       => 'plans#index', as: 'plans'
+  get '/signup/:plan' => 'plans#show',      as: 'signup'
+  get '/plans/'       => 'plans#index',     as: 'plans'
+
+  resources :purchases
 
   resources :subscriptions do
     put :change_plan, :on => :member, as: 'change'

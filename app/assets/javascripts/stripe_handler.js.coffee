@@ -1,13 +1,13 @@
 jQuery ->
   Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
-  subscription.setupForm()
+  stripe_handler.setupForm()
 
-subscription =
-  setupForm: ->
-    $('form[id*="subscription"]').submit ->
+window.stripe_handler =
+  setupForm: () ->
+    $("form.stripe").submit ->
       $('input[type=submit]').attr('disabled', true)
       if $('#card_number').length
-        subscription.processCard()
+        stripe_handler.processCard()
         false
       else
         true
@@ -18,13 +18,13 @@ subscription =
       cvc:         $('#card_code').val()
       exp_month:   $('#card_month').val()
       exp_year:    $('#card_year').val()
-      address_zip: $('#subscription_card_zip').val()
-    Stripe.createToken(card, subscription.handleStripeResponse)
+      address_zip: $("#card_zip").val()
+    Stripe.createToken(card, stripe_handler.handleStripeResponse)
 
   handleStripeResponse: (status, response) ->
     if status == 200
-      $('#subscription_stripe_card_token').val(response.id)
-      $('form[id*="subscription"]')[0].submit()
+      $('input[id$="stripe_card_token"]').val(response.id)
+      $("form.stripe")[0].submit()
     else
       parent = $('.error_messages').find('ul')[0]
       if parent

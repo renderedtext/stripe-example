@@ -1,0 +1,11 @@
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Price
+  - @purchases.each do |p|
+    %tr
+      %td= link_to p.name, new_purchase_path( item_id: p )
+      %td= p.description
+      %td= p.price
+
