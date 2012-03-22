@@ -1,4 +1,4 @@
-stripe = if Rails.env == 'production'
+stripe = if ENV['STRIPE_APP_ID'] and ENV['STRIPE_SECRET']
   { app_id: ENV['STRIPE_APP_ID'], secret: ENV['STRIPE_SECRET'] }
 else
   path = Rails.root.join *%w[ config stripe.yml ]
